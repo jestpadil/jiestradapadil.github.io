@@ -508,15 +508,27 @@ section {
 
 .skill-list {
      display: flex;
-     flex-direction: column;
-     gap: 16px;
+     flex-wrap: wrap;
+     gap: 10px;
 }
 
 .skill-item {
-     display: grid;
-     grid-template-columns: 110px 1fr 40px;
+     display: inline-flex;
      align-items: center;
-     gap: 12px;
+     gap: 10px;
+     padding: 10px 18px;
+     background: var(--bg);
+     border: 1px solid var(--border);
+     border-radius: 12px;
+     transition: all var(--transition);
+     cursor: default;
+}
+
+.skill-item:hover {
+     border-color: var(--primary);
+     background: var(--white);
+     box-shadow: var(--shadow);
+     transform: translateY(-2px);
 }
 
 .skill-name {
@@ -525,30 +537,23 @@ section {
      color: var(--dark);
 }
 
-.skill-bar {
-     height: 6px;
-     background: var(--light);
-     border-radius: 3px;
-     overflow: hidden;
+.skill-badge {
+     width: 28px;
+     height: 28px;
+     border-radius: 8px;
+     background: var(--primary-light);
+     color: var(--primary);
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     transition: all var(--transition);
+     flex-shrink: 0;
 }
 
-.skill-fill {
-     height: 100%;
-     background: linear-gradient(90deg, var(--primary), var(--primary-dark));
-     border-radius: 3px;
-     width: 0;
-     transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.skill-fill.animated {
-     width: var(--fill-width);
-}
-
-.skill-pct {
-     font-size: 0.8rem;
-     font-weight: 600;
-     color: var(--gray);
-     text-align: right;
+.skill-item:hover .skill-badge {
+     background: var(--primary);
+     color: var(--white);
+     transform: scale(1.1);
 }
 
 /* ===== Projects ===== */
@@ -906,7 +911,7 @@ footer {
      }
 
      .skill-item {
-          grid-template-columns: 90px 1fr 36px;
+          padding: 8px 14px;
           gap: 8px;
      }
 
@@ -944,7 +949,7 @@ footer {
      }
 
      .skill-item {
-          grid-template-columns: 80px 1fr 32px;
+          padding: 8px 14px;
      }
 
      .info-card {

@@ -82,17 +82,6 @@ document.addEventListener('DOMContentLoaded', () => {
           entries.forEach(entry => {
                if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
-
-                    // Animate skill bars when skill card is visible
-                    if (entry.target.classList.contains('skill-card')) {
-                         const fills = entry.target.querySelectorAll('.skill-fill');
-                         fills.forEach(fill => {
-                              const width = fill.getAttribute('data-width');
-                              fill.style.setProperty('--fill-width', `${width}%`);
-                              fill.classList.add('animated');
-                         });
-                    }
-
                     revealObserver.unobserve(entry.target);
                }
           });
